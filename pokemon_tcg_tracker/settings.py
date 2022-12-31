@@ -37,7 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'card_manager.apps.CardManagerConfig',
+    'data_integrator.apps.DataIntegratorConfig',
 ]
 
 MIDDLEWARE = [
