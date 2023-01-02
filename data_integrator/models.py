@@ -10,7 +10,7 @@ class Datasource(models.Model):
 
 class Credential(models.Model):
     
-    datasource = models.ForeignKey(Datasource, on_delete=models.CASCADE)
+    name = models.TextField()
     key = models.TextField()
 
 
