@@ -58,6 +58,7 @@ class FunctionalTests(StaticLiveServerTestCase):
         tcg_api = Datasource(
             name="Pokémon TCG API",
             url="https://api.pokemontcg.io/v2/cards")
+        tcg_api.full_clean()
         tcg_api.save()
 
         # Add my API key for the Pokémon TCG API
@@ -65,14 +66,17 @@ class FunctionalTests(StaticLiveServerTestCase):
             name="Pokémon TCG API Credential",
             key="fakekey"
         )
+        tcg_api_credential.full_clean()
         tcg_api_credential.save()
 
         # Link my API key to the Datasource I created
         tcg_api.credential = tcg_api_credential
+        tcg_api_credential.full_clean()
         tcg_api.save()
 
         # Set the API to load its data into the "Card" model
         tcg_api.model = "Card"
+        tcg_api.full_clean()
         tcg_api.save()
 
         # Click a button to execute the data load
