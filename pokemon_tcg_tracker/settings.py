@@ -37,7 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'data_integrator.apps.DataIntegratorConfig',
+    'pokemon_tcg_api.apps.PokemonTcgApiConfig',
 ]
 
 MIDDLEWARE = [
