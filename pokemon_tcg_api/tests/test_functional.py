@@ -47,4 +47,22 @@ pokemon_names = [
 
 class FunctionalTests(StaticLiveServerTestCase):
 
-    pass
+    def test_search_for_existing_cards(self):
+        # A user navigates to the website.
+
+        # They're presented with a search bar.
+
+        # They enter a Pokémon's name and click "search".
+
+        # They're presented with the number of cards containing that name...
+
+        # ...as well as the first few cards containing that name.
+
+        # The user enters another Pokémon's name and clicks "search".
+
+        # They're presented with the number of cards containing that name...
+
+        # ...as well as the first few cards containing that name.
+
+        # Satisfied, the user leaves the site.
+        self.fail()
