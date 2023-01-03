@@ -4,6 +4,8 @@ from selenium.webdriver.chrome.webdriver import WebDriver
 from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.common.by import By
 
+import random
+
 pokemon_names = [
     "Bulbasaur",
     "Ivysaur",
@@ -66,10 +68,13 @@ class FunctionalTests(StaticLiveServerTestCase):
         # A user navigates to the website.
         self.selenium.get(self.live_server_url)
 
+        # They pick a Pokémon they want to search for
+        names_to_search = random.choices(pokemon_names, k=2)
+
         # They enter a Pokémon's name into the search bar and click "search".
         search_bar = self.selenium.find_element(
             By.CSS_SELECTOR, 'input[type="text"]')
-        search_bar.send_keys("Pikachu")
+        search_bar.send_keys(names_to_search[0])
         search_button = self.selenium.find_element(
             By.CSS_SELECTOR, 'input[value="Search"]')
         search_button.click()
@@ -80,13 +85,13 @@ class FunctionalTests(StaticLiveServerTestCase):
 
         # ...as well as the first few cards containing that name.
         results = self.selenium.find_elements(
-            By.XPATH, "//*[contains(text(),'Pikachu')]")
+            By.XPATH, f'//*[contains(text(),\'{names_to_search[0]}\')]')
         self.assertGreater(len(results), 0)
 
         # The user enters another Pokémon's name and clicks "search".
         search_bar = self.selenium.find_element(
             By.CSS_SELECTOR, 'input[type="text"]')
-        search_bar.send_keys("Porygon")
+        search_bar.send_keys(names_to_search[1])
         search_button = self.selenium.find_element(
             By.CSS_SELECTOR, 'input[value="Search"]')
         search_button.click()
@@ -97,7 +102,7 @@ class FunctionalTests(StaticLiveServerTestCase):
 
         # ...as well as the first few cards containing that name.
         results = self.selenium.find_elements(
-            By.XPATH, "//*[contains(text(),'Porygon')]")
+            By.XPATH, f'//*[contains(text(),\'{names_to_search[1]}\')]')
         self.assertGreater(len(results), 0)
 
         # Satisfied, the user leaves the site.
