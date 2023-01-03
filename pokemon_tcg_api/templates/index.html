@@ -1,10 +1,13 @@
 {% extends 'base.html' %}
 
 {% block content %}
-    <input type="text">
-    <input type="submit" value="Search">
+    <form method="POST">
+        {% csrf_token %}
+        <input type="text" name="name">
+        <input type="submit" value="Search">
+    </form>
     <p>Results: 15</p>
     <ul>
-        <li>{{name}}</li>
+        <li>{{ name }}</li>
     </ul>
 {% endblock %}
