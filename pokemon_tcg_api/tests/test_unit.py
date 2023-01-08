@@ -1,8 +1,10 @@
+from django.db.models.query import QuerySet
 from django.test import TestCase, Client
 from django.urls import reverse
 
 import random
 
+from ..models import Card
 from .. import views
 
 pokemon_names = [
@@ -86,5 +88,18 @@ class ViewTests(TestCase):
         response = client.post(reverse('index'), post_data)
 
         # Check the response context for the list
-        self.assertIsInstance(response.context['cards'], list)
+        self.assertIsInstance(response.context['cards'], QuerySet)
         self.assertGreater(len(response.context['cards']), 0)
+
+    def test_index_populates_Cards_on_POST(self):
+        client = Client()
+        name = random.choice(pokemon_names)
+
+        # Generate the POST data
+        post_data = {'name': name}
+
+        # Submit it to the index view
+        response = client.post(reverse('index'), post_data)
+
+        # Check the number of Card objects
+        self.assertGreater(Card.objects.count(), 0)
