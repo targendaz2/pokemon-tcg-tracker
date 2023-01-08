@@ -6,7 +6,7 @@ def index(request):
     if request.method == 'POST':
         name = request.POST.get('name')
         cards = Card.where(q=f'name:{name}')
-        count = len(Card.where(q=f'name:{name}'))
+        count = len(cards)
         return render(request, 'index.html', {
             'name': name,
             'cards': cards,
