@@ -61,3 +61,16 @@ class ViewTests(TestCase):
 
         # Check the response for the card name
         self.assertContains(response, name)
+
+    def test_index_includes_count_in_context_on_POST(self):
+        client = Client()
+        name = random.choice(pokemon_names)
+
+        # Generate the POST data
+        post_data = {'name': name}
+
+        # Submit it to the index view
+        response = client.post(reverse('index'), post_data)
+
+        # Check the response for the card name
+        self.assertIsNotNone(response.context['count'])

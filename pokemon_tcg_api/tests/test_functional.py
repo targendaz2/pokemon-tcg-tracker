@@ -86,6 +86,7 @@ class FunctionalTests(StaticLiveServerTestCase):
         self.assertGreater(results_count, 0)
 
         # ...as well as the first few cards containing that name.
+        print(names_to_search[0])
         results = self.selenium.find_elements(
             By.XPATH, f'//*[contains(text(),\'{names_to_search[0]}\')]')
         self.assertGreater(len(results), 0)
@@ -105,6 +106,7 @@ class FunctionalTests(StaticLiveServerTestCase):
         self.assertGreater(results_count, 0)
 
         # ...as well as the first few cards containing that name.
+        print(names_to_search[1])
         results = self.selenium.find_elements(
             By.XPATH, f'//*[contains(text(),\'{names_to_search[1]}\')]')
         self.assertGreater(len(results), 0)
@@ -134,6 +136,7 @@ class FunctionalTests(StaticLiveServerTestCase):
         self.assertEqual(results_count, 0)
 
         # ...and don't see any results.
+        print(name_to_search)
         results = self.selenium.find_elements(
             By.XPATH, f'//*[contains(text(),\'{name_to_search}\')]')
         self.assertEqual(len(results), 0)
