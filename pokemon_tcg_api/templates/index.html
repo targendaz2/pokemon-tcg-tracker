@@ -8,6 +8,8 @@
     </form>
     <p>Results: {{ count }}</p>
     <ul>
-        <li>{{ name }}</li>
+        {% for card in cards %}
+            <li>{{ card.name }}</li>
+        {% endfor %}
     </ul>
 {% endblock %}
