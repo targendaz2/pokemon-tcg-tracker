@@ -49,8 +49,9 @@ pokemon_names = [
     "Ho-Oh"
 ]
 
+
 class ViewTests(TestCase):
-    
+
     def test_index_includes_name_from_POST(self):
         client = Client()
         name = random.choice(pokemon_names)
