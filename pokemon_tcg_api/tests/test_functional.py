@@ -41,7 +41,7 @@ pokemon_names = [
     "Espeon",
     "Umbreon",
     "Porygon2",
-    "Raiku",
+    "Raikou",
     "Entei",
     "Suicune",
     "Lugia",
