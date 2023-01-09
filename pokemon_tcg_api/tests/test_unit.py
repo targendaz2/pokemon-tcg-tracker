@@ -103,3 +103,22 @@ class ViewTests(TestCase):
 
         # Check the number of Card objects
         self.assertGreater(Card.objects.count(), 0)
+
+    def test_index_merges_duplicate_Cards_on_POST(self):
+        client = Client()
+        name = random.choice(pokemon_names)
+
+        # Generate the POST data
+        post_data = {'name': name}
+
+        # Submit it to the index view
+        client.post(reverse('index'), post_data)
+
+        # Check the number of Card objects
+        initial_card_count = Card.objects.count()
+
+        # POST to the index view once more
+        client.post(reverse('index'), post_data)
+
+        # Check that the number of Card objects has not changed
+        self.assertEqual(initial_card_count, Card.objects.count())
