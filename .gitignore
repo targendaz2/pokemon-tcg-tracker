@@ -1,5 +1,5 @@
-# Created by https://www.toptal.com/developers/gitignore/api/django,macos
-# Edit at https://www.toptal.com/developers/gitignore?templates=django,macos
+# Created by https://www.toptal.com/developers/gitignore/api/django,macos,visualstudiocode
+# Edit at https://www.toptal.com/developers/gitignore?templates=django,macos,visualstudiocode
 
 ### Django ###
 *.log
@@ -204,4 +204,23 @@ Temporary Items
 # iCloud generated files
 *.icloud
 
-# End of https://www.toptal.com/developers/gitignore/api/django,macos
+### VisualStudioCode ###
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+!.vscode/*.code-snippets
+
+# Local History for Visual Studio Code
+.history/
+
+# Built Visual Studio Code Extensions
+*.vsix
+
+### VisualStudioCode Patch ###
+# Ignore all local history of files
+.history
+.ionide
+
+# End of https://www.toptal.com/developers/gitignore/api/django,macos,visualstudiocode
