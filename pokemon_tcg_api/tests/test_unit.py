@@ -123,3 +123,19 @@ class ViewTests(TestCase):
 
         # Check that the number of Card objects has not changed
         self.assertEqual(initial_card_count, Card.objects.count())
+
+    def test_index_uploads_card_images_from_API(self):
+        from django.core.files.storage import default_storage
+
+        client = Client()
+        name = random.choice(pokemon_names)
+
+        # Generate the POST data
+        post_data = {'name': name}
+
+        # Submit it to the index view
+        client.post(reverse('index'), post_data)
+
+        # Check the number of Card objects
+        dirs, files = default_storage.listdir('')
+        self.assertGreater(len(files), 0)
