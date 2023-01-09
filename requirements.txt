@@ -1,5 +1,6 @@
 autopep8==2.0.1
 Django==4.1.4
+requests==2.28.1
 selenium==4.7.2
 pokemontcgsdk==3.4.0
 Pillow==9.4.0
