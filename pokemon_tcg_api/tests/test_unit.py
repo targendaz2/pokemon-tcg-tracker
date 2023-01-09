@@ -136,6 +136,6 @@ class ViewTests(TestCase):
         # Submit it to the index view
         client.post(reverse('index'), post_data)
 
-        # Check the number of Card objects
-        dirs, files = default_storage.listdir('')
+        # Check the number of uploaded images
+        dirs, files = default_storage.listdir('card_images')
         self.assertGreater(len(files), 0)
