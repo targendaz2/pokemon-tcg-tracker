@@ -20,7 +20,7 @@ def index(request):
                 id=api_card.id, name=api_card.name)
 
             image_content = requests.get(
-                api_card.images.large, stream=True).content
+                api_card.images.small, stream=True).content
 
             new_card.image.save(os.path.basename(
                 f'{new_card.id}.png'), File(BytesIO(image_content), 'rb'))

@@ -9,7 +9,7 @@
     <p>Results: {{ count }}</p>
     <ul>
         {% for card in cards %}
-            <li>{{ card }}</li>
+            <li>{{ card }}<br><img src="{{ card.image.url }}"></li>
         {% endfor %}
     </ul>
 {% endblock %}
