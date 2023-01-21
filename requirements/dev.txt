@@ -1,0 +1,4 @@
+-r common.txt
+
+autopep8==2.0.1
+selenium==4.7.2
